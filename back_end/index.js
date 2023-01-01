@@ -3,6 +3,7 @@ const app = express();
 const port = 5000;
 const userController = require("../back_end/controllers/users");
 const productController = require("../back_end/controllers/products");
+const questionModel = require("../back_end/models/question");
 
 var bodyParser = require("body-parser");
 
@@ -36,6 +37,7 @@ app.get("/getproducts", productController.getProducts);
 app.get("/getusers", userController.getAllUsers);
 
 app.post("/setloyality", userController.setLoyality);
+app.get("/getques", questionModel.question);
 
 app.listen(port, () => {
   console.log(`Backend app listening on port ${port}`);
